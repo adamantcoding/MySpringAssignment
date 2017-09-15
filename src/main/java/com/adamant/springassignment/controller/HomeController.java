@@ -4,6 +4,7 @@ import com.adamant.springassignment.domain.*;
 import com.adamant.springassignment.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
@@ -26,32 +27,32 @@ public class HomeController {
     CarService carService;
 
     @PostMapping(value = "/carModel/create", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody CarModel createModel(@RequestBody CarModel carModel){
+    public CarModel createModel(@RequestBody CarModel carModel){
         return carService.createCarModel(carModel);
     }
 
     @PostMapping("/carOwner/addCar/{id}")
-    public @ResponseBody Collection<Car> addCar(@RequestBody Car car, @PathVariable("id") Long id){
+    public Collection<Car> addCar(@RequestBody Car car, @PathVariable("id") Long id){
         return carService.addCarToOwner(id, car);
     }
 
     @PostMapping("/carOwner/create")
-    public @ResponseBody CarOwner createOwner(@RequestBody CarOwner carOwner){
+    public CarOwner createOwner(@RequestBody CarOwner carOwner){
         return carService.createOwner(carOwner);
     }
 
     @GetMapping("/carOwner/{id}")
-    public @ResponseBody CarOwner getOwner(@PathVariable("id") Long id){
+    public CarOwner getOwner(@PathVariable("id") Long id){
         return carService.getOwner(id);
     }
 
     @GetMapping("/cars/carOwner/{id}")
-    public @ResponseBody Collection<Car> getAllCarsByOwner(@PathVariable("id") Long id){
+    public Collection<Car> getAllCarsByOwner(@PathVariable("id") Long id){
         return carService.findCarsByOwner(id);
     }
 
     @GetMapping("/cars/all")
-    public @ResponseBody Collection<Car> getAllCars(){
+    public Collection<Car> getAllCars(){
         return carService.findAllCars();
     }
 }

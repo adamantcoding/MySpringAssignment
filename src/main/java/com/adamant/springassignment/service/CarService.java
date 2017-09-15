@@ -6,6 +6,7 @@ import com.adamant.springassignment.domain.CarOwner;
 import com.adamant.springassignment.repository.CarModelRepository;
 import com.adamant.springassignment.repository.CarOwnerRepository;
 import com.adamant.springassignment.repository.CarRepository;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
