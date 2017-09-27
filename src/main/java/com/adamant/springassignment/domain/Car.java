@@ -21,7 +21,6 @@ public class Car {
     private String color;
     private Double price;
     @ManyToOne
-    @JoinColumn(name = "owner_id")
     private CarOwner carOwner;
 
     public Car(){}

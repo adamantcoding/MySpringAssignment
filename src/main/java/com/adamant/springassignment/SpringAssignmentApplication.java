@@ -41,6 +41,7 @@ public class SpringAssignmentApplication {
 		carOwnerRepository.save(carOwner);
 		carRepository.save(car1);
 		carRepository.save(car2);
+		System.out.println("carRepository size is " + carRepository.findAll().size());
 		return result -> carRepository.findAll();
 	}
 }

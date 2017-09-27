@@ -4,6 +4,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -18,6 +20,7 @@ public class AspectTest {
 
     @Before("controller(getMapping)")
     public void advice(JoinPoint jp, GetMapping getMapping) {
-        LOGGER.info(jp.toString());
+        LOGGER.info("executing " + jp.getTarget().toString());
     }
+
 }
